@@ -1,0 +1,467 @@
+{
+ "syncedAt": "2026-11-23",
+ "sections": {
+  "campaigns": true,
+  "journeys": true,
+  "billing": true
+ },
+ "data": {
+  "campaigns": [
+   {
+    "id": "443037",
+    "name": "Apparel - Switching Seasons Sale",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 14801,
+    "delivered": 14469,
+    "read": 5518,
+    "clicked": 389,
+    "orders": 15,
+    "revenue": 150190,
+    "cost": 20160
+   },
+   {
+    "id": "439328",
+    "name": "24HRS Flash Sale - 9PM Wakeup",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 16159,
+    "delivered": 15408,
+    "read": 4895,
+    "clicked": 653,
+    "orders": 16,
+    "revenue": 171430,
+    "cost": 22120
+   },
+   {
+    "id": "431423",
+    "name": "CTT is back baby",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 14174,
+    "delivered": 13890,
+    "read": 5172,
+    "clicked": 883,
+    "orders": 18,
+    "revenue": 326931,
+    "cost": 15771
+   },
+   {
+    "id": "431413",
+    "name": "Mega Price Drop - Saturday",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 20105,
+    "delivered": 19715,
+    "read": 8279,
+    "clicked": 1121,
+    "orders": 37,
+    "revenue": 501681,
+    "cost": 23609
+   },
+   {
+    "id": "428433",
+    "name": "Rakhi 26-08-2026 Copy",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 15919,
+    "delivered": 15652,
+    "read": 6855,
+    "clicked": 817,
+    "orders": 24,
+    "revenue": 344403,
+    "cost": 19112
+   },
+   {
+    "id": "427925",
+    "name": "Gifting him & her pre-Rakhi weekend Copy",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 19717,
+    "delivered": 19360,
+    "read": 7812,
+    "clicked": 282,
+    "orders": 3,
+    "revenue": 45747,
+    "cost": 26597
+   },
+   {
+    "id": "427241",
+    "name": "Gifting him & her pre-Rakhi weekend",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 11564,
+    "delivered": 11280,
+    "read": 4358,
+    "clicked": 278,
+    "orders": 8,
+    "revenue": 62276,
+    "cost": 14382
+   },
+   {
+    "id": "424581",
+    "name": "Flash Sale Announcement - 15 Aug",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 31464,
+    "delivered": 30903,
+    "read": 12252,
+    "clicked": 2340,
+    "orders": 42,
+    "revenue": 494855,
+    "cost": 53965
+   },
+   {
+    "id": "422241",
+    "name": "Apparel MDS Last Day",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 6065,
+    "delivered": 5973,
+    "read": 2741,
+    "clicked": 218,
+    "orders": 8,
+    "revenue": 110133,
+    "cost": 7707
+   },
+   {
+    "id": "419126",
+    "name": "Apparel MD26 Loyal Customer 01-08-2026",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 5054,
+    "delivered": 4981,
+    "read": 2016,
+    "clicked": 252,
+    "orders": 23,
+    "revenue": 120321,
+    "cost": 6363
+   },
+   {
+    "id": "418695",
+    "name": "Apparel MD26 High Intent 01-08-2026",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 3404,
+    "delivered": 3364,
+    "read": 1757,
+    "clicked": 220,
+    "orders": 10,
+    "revenue": 74515,
+    "cost": 4783
+   },
+   {
+    "id": "418276",
+    "name": "WHOOP Offer 30 Jul 2026",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 6889,
+    "delivered": 6786,
+    "read": 3219,
+    "clicked": 191,
+    "orders": 15,
+    "revenue": 230534,
+    "cost": 9240
+   },
+   {
+    "id": "414915",
+    "name": "Grails Champions, Loyal Customers, Potential Loyalists",
+    "channel": "WhatsApp",
+    "status": "Completed",
+    "sent": 15827,
+    "delivered": 15610,
+    "read": 7094,
+    "clicked": 864,
+    "orders": 37,
+    "revenue": 782702,
+    "cost": 22129
+   }
+  ],
+  "campaignSummary": {
+   "count": 163,
+   "revenue": 16940530,
+   "cost": 1317280,
+   "roi": 12.86
+  },
+  "journeys": [
+   {
+    "id": "abandonedc1351",
+    "name": "Abandoned Checkout - New",
+    "channel": "WhatsApp",
+    "status": "Live",
+    "entries": 43393,
+    "revenue": 4646315,
+    "cost": 0
+   },
+   {
+    "id": "shippingup8075",
+    "name": "Shipping Updates Automation",
+    "channel": "WhatsApp",
+    "status": "Live",
+    "entries": 23417,
+    "revenue": 1139379,
+    "cost": 0
+   },
+   {
+    "id": "postdelive7081",
+    "name": "Post-Delivery Customer Feedback Flow",
+    "channel": "WhatsApp",
+    "status": "Live",
+    "entries": 4703,
+    "revenue": 37497,
+    "cost": 0
+   },
+   {
+    "id": "wheresmy2569",
+    "name": "Where is my Order WA",
+    "channel": "WhatsApp",
+    "status": "Live",
+    "entries": 450,
+    "revenue": 32497,
+    "cost": 0
+   },
+   {
+    "id": "orderconfi3772",
+    "name": "Order Confirm Omnichannel",
+    "channel": "WhatsApp",
+    "status": "Live",
+    "entries": 5949,
+    "revenue": 29998,
+    "cost": 0
+   },
+   {
+    "id": "waupdated6338",
+    "name": "WA Updated - New Flow",
+    "channel": "WhatsApp",
+    "status": "Live",
+    "entries": 7192,
+    "revenue": 0,
+    "cost": 0
+   },
+   {
+    "id": "assigntoagent5994",
+    "name": "Assign to Agent WA",
+    "channel": "WhatsApp",
+    "status": "Live",
+    "entries": 6723,
+    "revenue": 0,
+    "cost": 0
+   },
+   {
+    "id": "deliveryti3514",
+    "name": "Delivery Timeline",
+    "channel": "WhatsApp",
+    "status": "Live",
+    "entries": 7709,
+    "revenue": 0,
+    "cost": 0
+   },
+   {
+    "id": "deliveryti6959",
+    "name": "Delivery Timeline 7-14 Business Days",
+    "channel": "WhatsApp",
+    "status": "Live",
+    "entries": 7697,
+    "revenue": 0,
+    "cost": 0
+   },
+   {
+    "id": "delayinsh3969",
+    "name": "Delay in Shipment",
+    "channel": "WhatsApp",
+    "status": "Live",
+    "entries": 5955,
+    "revenue": 0,
+    "cost": 0
+   },
+   {
+    "id": "smtpflow6836",
+    "name": "Email (SMTP) assign agent flow",
+    "channel": "Email",
+    "status": "Live",
+    "entries": 4272,
+    "revenue": 0,
+    "cost": 0
+   },
+   {
+    "id": "woctest3681",
+    "name": "WoC Test",
+    "channel": "WhatsApp",
+    "status": "Test",
+    "entries": 0,
+    "revenue": 0,
+    "cost": 0
+   }
+  ],
+  "billing": {
+   "balance": 17619.88,
+   "runwayDays": 8,
+   "plan": "Quarterly billing",
+   "spentMonth": 34328,
+   "byChannel": [
+    {
+     "channel": "WhatsApp (paid)",
+     "amount": 34328
+    },
+    {
+     "channel": "Contacts (free quota)",
+     "amount": 9746
+    },
+    {
+     "channel": "AI messages (free quota)",
+     "amount": 155
+    },
+    {
+     "channel": "Email (free quota)",
+     "amount": 89
+    }
+   ],
+   "daily": [
+    {
+     "date": "2026-10-29",
+     "amount": 2082.55
+    },
+    {
+     "date": "2026-10-30",
+     "amount": 1857.97
+    },
+    {
+     "date": "2026-10-31",
+     "amount": 2023.28
+    },
+    {
+     "date": "2026-11-01",
+     "amount": 1812.89
+    },
+    {
+     "date": "2026-11-02",
+     "amount": 1851.61
+    },
+    {
+     "date": "2026-11-03",
+     "amount": 1682.05
+    },
+    {
+     "date": "2026-11-04",
+     "amount": 1810.37
+    },
+    {
+     "date": "2026-11-05",
+     "amount": 1494.11
+    },
+    {
+     "date": "2026-11-06",
+     "amount": 1667.13
+    },
+    {
+     "date": "2026-11-07",
+     "amount": 1703.82
+    },
+    {
+     "date": "2026-11-08",
+     "amount": 1592.09
+    },
+    {
+     "date": "2026-11-09",
+     "amount": 1600.93
+    },
+    {
+     "date": "2026-11-10",
+     "amount": 2169.82
+    },
+    {
+     "date": "2026-11-11",
+     "amount": 2227.03
+    },
+    {
+     "date": "2026-11-12",
+     "amount": 2392.92
+    },
+    {
+     "date": "2026-11-13",
+     "amount": 2160.43
+    },
+    {
+     "date": "2026-11-14",
+     "amount": 2293.61
+    },
+    {
+     "date": "2026-11-15",
+     "amount": 1874.75
+    },
+    {
+     "date": "2026-11-16",
+     "amount": 2033.83
+    },
+    {
+     "date": "2026-11-17",
+     "amount": 1993.57
+    },
+    {
+     "date": "2026-11-18",
+     "amount": 2044.52
+    },
+    {
+     "date": "2026-11-19",
+     "amount": 2233.0
+    },
+    {
+     "date": "2026-11-20",
+     "amount": 2118.7
+    },
+    {
+     "date": "2026-11-21",
+     "amount": 2187.48
+    },
+    {
+     "date": "2026-11-22",
+     "amount": 2034.63
+    }
+   ],
+   "transactions": [
+    {
+     "date": "2026-11-22",
+     "type": "Debit",
+     "desc": "WhatsApp daily usage (2,818 conversations)",
+     "amount": -2034.63
+    },
+    {
+     "date": "2026-11-21",
+     "type": "Debit",
+     "desc": "WhatsApp daily usage (3,378 conversations)",
+     "amount": -2187.48
+    },
+    {
+     "date": "2026-11-20",
+     "type": "Debit",
+     "desc": "WhatsApp daily usage (3,379 conversations)",
+     "amount": -2118.7
+    },
+    {
+     "date": "2026-11-19",
+     "type": "Debit",
+     "desc": "WhatsApp daily usage (3,574 conversations)",
+     "amount": -2233.0
+    },
+    {
+     "date": "2026-11-18",
+     "type": "Debit",
+     "desc": "WhatsApp daily usage (3,424 conversations)",
+     "amount": -2044.52
+    },
+    {
+     "date": "2026-11-12",
+     "type": "Credit",
+     "desc": "Wallet recharge",
+     "amount": 30000
+    },
+    {
+     "date": "2026-11-12",
+     "type": "Debit",
+     "desc": "WhatsApp daily usage (3,532 conversations)",
+     "amount": -2392.92
+    }
+   ]
+  }
+ }
+}

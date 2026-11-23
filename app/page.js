@@ -81,7 +81,8 @@ export default function Page() {
   const open = tickets.filter((t) => t.status !== "Closed");
   const breached = open.filter((t) => t.waitMins > SLA).length;
   const liveC = campaigns.filter((c) => isLive(c.status));
-  const mktSpend = sum(campaigns, "cost"), mktRev = sum(campaigns, "revenue");
+  const cs = data.campaignSummary;
+  const mktSpend = cs ? cs.cost : sum(campaigns, "cost"), mktRev = cs ? cs.revenue : sum(campaigns, "revenue");
   const rows = useMemo(() => tickets.filter((t) => (!filter || t.status === filter) && `${t.customer} ${t.id} ${t.subject} ${t.assignee} ${t.channel}`.toLowerCase().includes(q.toLowerCase())), [tickets, q, filter]);
   const now = new Date();
   const first = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
@@ -118,21 +119,21 @@ export default function Page() {
             <button className="pill-btn" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>{theme === "light" ? "Dark" : "Light"}</button>
           </div>
         </div>
-        <div className="badges">{badges.map(([k, v]) => <span key={k} className={"badge" + (v === "live" ? "" : " sample")} title={v}>{k}: {v === "live" ? "live" : v === "sample" ? "sample data" : "error"}</span>)}</div>
+        <div className="badges">{badges.map(([k, v]) => <span key={k} className={"badge" + (v === "live" ? "" : " sample")} title={v}>{k}: {v === "live" ? "live" : v === "sample" ? "sample data" : v.startsWith("snapshot") ? v : "error"}</span>)}</div>
         {err && <div className="alert">{err}</div>}
-        {badges.some(([, v]) => v.startsWith("error")) && <div className="alert">Bik did not return data for some sections, so sample data is shown there. {badges.find(([, v]) => v.startsWith("error"))[1]}</div>}
+        {badges.some(([, v]) => v.startsWith("error")) && <div className="alert">Live sync with Bik failed, so saved or sample data is shown for those sections. {badges.find(([, v]) => v.startsWith("error"))[1]}</div>}
 
         {tab === "Overview" && (<>
           <section className="kpis6">
             <Stat cls="k2" label="Open tickets" value={open.length} tip={`${breached} past the ${SLA / 60}h SLA`} />
             <Stat cls="k1" label="Past SLA" value={breached} tip="Open longer than 4 hours" />
             <Stat cls="k4" label="Live campaigns" value={liveC.length} tip={liveC.map((c) => c.name).join(", ") || "None running"} />
-            <Stat cls="k3" label="Campaign revenue" value={inr(mktRev)} tip={`${campaigns.reduce((a, c) => a + c.orders, 0)} orders`} />
-            <Stat cls="k1" label="Spent on Bik (month)" value={inr(billing.spentMonth)} tip="Wallet usage this month" />
+            <Stat cls="k3" label={cs ? "Campaign revenue (all time)" : "Campaign revenue"} value={inr(mktRev)} tip={cs ? `${cs.count} campaigns sent` : `${campaigns.reduce((a, c) => a + c.orders, 0)} orders`} />
+            <Stat cls="k1" label="Spent on Bik (this billing period)" value={inr(billing.spentMonth)} tip="Wallet usage this month" />
             <Stat cls="k2" label="Wallet runway" value={`${billing.runwayDays} days`} tip={`Balance ${inr(billing.balance)}`} />
           </section>
           <div className="g2">
-            <section className="box"><h3>Daily Bik spend (30 days)</h3><Line pts={billing.daily} /></section>
+            <section className="box"><h3>Daily WhatsApp spend</h3><Line pts={billing.daily} /></section>
             <section className="box"><h3>Revenue by campaign</h3><Bars items={campaigns.slice(0, 6).map((c) => ({ k: c.name, v: c.revenue }))} fmtv={inr} /></section>
             <section className="box"><h3>Tickets by status</h3><Bars items={CARDS.map((c) => ({ k: c.label, v: tickets.filter((t) => t.status === c.key).length }))} /></section>
             <section className="box"><h3>Marketing return</h3><p className="big">{mktSpend ? (mktRev / mktSpend).toFixed(1) : 0}x</p><span className="mute">{inr(mktRev)} revenue on {inr(mktSpend)} campaign cost</span></section>
@@ -187,7 +188,7 @@ export default function Page() {
           </section>
           <div className="g2">
             <section className="box"><h3>Spend by channel</h3><Bars items={billing.byChannel.map((c) => ({ k: c.channel, v: c.amount }))} fmtv={inr} /></section>
-            <section className="box"><h3>Daily spend (30 days)</h3><Line pts={billing.daily} /></section>
+            <section className="box"><h3>Daily WhatsApp spend</h3><Line pts={billing.daily} /></section>
           </div>
           <h3 className="sub">Wallet transactions</h3>
           <Table rows={billing.transactions} cols={[{ h: "Date", f: (t) => t.date }, { h: "Type", f: (t) => t.type }, { h: "Details", w: "3fr", f: (t) => t.desc }, { h: "Amount", f: (t) => <b style={{ color: t.amount < 0 ? "var(--c1i)" : "var(--c4i)" }}>{inr(t.amount)}</b> }]} />
@@ -195,12 +196,12 @@ export default function Page() {
 
         {tab === "Journeys" && (<>
           <section className="kpis">
-            <Stat cls="k4" label="Live journeys" value={journeys.filter((j) => isLive(j.status)).length} />
+            <Stat cls="k4" label="Live journeys (shown)" value={journeys.filter((j) => isLive(j.status)).length} />
             <Stat cls="k2" label="In test mode" value={journeys.filter((j) => !isLive(j.status)).length} />
             <Stat cls="k3" label="Journey revenue" value={inr(sum(journeys, "revenue"))} />
-            <Stat cls="k1" label="Journey cost" value={inr(sum(journeys, "cost"))} />
+            <Stat cls="k1" label="Journey cost" value={sum(journeys, "cost") ? inr(sum(journeys, "cost")) : "n/a"} />
           </section>
-          <Table rows={journeys} cols={[{ h: "Journey", w: "2fr", f: (j) => <b>{j.name}</b> }, { h: "Channel", f: (j) => j.channel }, { h: "Status", f: (j) => <span className={"st " + (isLive(j.status) ? "Closed" : "Waiting")}>{j.status}</span> }, { h: "Entered", f: (j) => j.entries.toLocaleString("en-IN") }, { h: "Revenue", f: (j) => inr(j.revenue) }, { h: "Cost", f: (j) => inr(j.cost) }]} />
+          <Table rows={journeys} cols={[{ h: "Journey", w: "2fr", f: (j) => <b>{j.name}</b> }, { h: "Channel", f: (j) => j.channel }, { h: "Status", f: (j) => <span className={"st " + (isLive(j.status) ? "Closed" : "Waiting")}>{j.status}</span> }, { h: "Entered", f: (j) => j.entries.toLocaleString("en-IN") }, { h: "Revenue", f: (j) => inr(j.revenue) }, { h: "Cost", f: (j) => (j.cost ? inr(j.cost) : "n/a") }]} />
         </>)}
       </main>
 
